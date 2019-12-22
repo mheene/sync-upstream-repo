@@ -1,0 +1,19 @@
+name: Sync upstream repository
+description: Sync current repository with the upstream.
+author: ---
+
+inputs:
+  upstream_repo:
+    description: GitHub public upstrem repo
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.upstream_repo }}
+
+
+branding:
+  icon: 'git-merge'
+  color: 'white'
