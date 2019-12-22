@@ -4,10 +4,12 @@ RUN apk add --no-cache \
 			bash \
 			git
 
-RUN adduser -D afd
+RUN adduser -D ci
 
-USER afd
+USER ci
 
-ADD *.bash /home/afd
+ADD *.sh /home/ci
 
-ENTRYPOINT ["/home/afd/entrypoint.bash"]
+RUN chmod 755 /home/ci/*.sh
+
+ENTRYPOINT ["/home/ci/entrypoint.sh"]
