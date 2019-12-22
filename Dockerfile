@@ -6,9 +6,9 @@ RUN apk add --no-cache \
 
 RUN adduser -D ci
 
-ADD *.sh /home/ci
+ADD *.sh /home/ci/
 
-RUN chmod 555 /home/ci/*.sh
+RUN chmod 555 /home/ci/*.sh & mkdir /github && chmod 666 /github
 
 USER ci
 
