@@ -6,10 +6,10 @@ RUN apk add --no-cache \
 
 RUN adduser -D ci
 
-USER ci
-
 ADD *.sh /home/ci
 
-RUN chmod 755 /home/ci/*.sh
+RUN chmod 555 /home/ci/*.sh
+
+USER ci
 
 ENTRYPOINT ["/home/ci/entrypoint.sh"]
