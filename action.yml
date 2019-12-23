@@ -1,10 +1,10 @@
-name: Sync upstream repository
-description: Sync current repository with the upstream. Greatly inspired by [actions-registry/github-repo-sync-upstream]
+name: Sync and merge upstream repository with your current repository 
+description: Syncs and merges your current repository with the upstream repository. Greatly inspired by [actions-registry/github-repo-sync-upstream]
 author: Markus Heene 
 
 inputs:
   upstream_repo:
-    description: GitHub public upstream repo
+    description: URL of gitHub public upstream repo example: https://github.com/holger24/AFD.git
     required: true
 
 runs:
@@ -16,4 +16,4 @@ runs:
 
 branding:
   icon: 'git-merge'
-  color: 'white'
+  color: 'blue'
