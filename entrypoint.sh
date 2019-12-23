@@ -18,9 +18,11 @@ fi
 
 echo "UPSTREAM_REPO=$UPSTREAM_REPO"
 
-git clone "https://github.com/${GITHUB_REPOSITORY}.git"
+git clone "https://github.com/${GITHUB_REPOSITORY}.git" work
+cd work
 
-cd `echo ${GITHUB_REPOSITORY} | cut -f 2 --delimiter=\"/\" `
+env 
+
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
@@ -34,3 +36,6 @@ git checkout master
 git merge upstream/master
 git commit -m "Merged upstream" . 
 git push origin master
+
+cd ..
+rm -rf work
