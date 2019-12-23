@@ -22,6 +22,7 @@ git clone "https://github.com/${GITHUB_REPOSITORY}.git" work
 cd work
 
 env 
+ls -l /
 
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
@@ -33,9 +34,12 @@ git fetch upstream
 git remote -v
 
 git checkout master
-git merge upstream/master
-git commit -m "Merged upstream" . 
-git push origin master
+
+MERGE_RESULT=$(git merge upstream/master)
+if [[ $MERGE_RESULT != *"Already up to date."* ]]; then
+  git commit -m "Merged upstream" . 
+  git push origin master
+fi
 
 cd ..
 rm -rf work
