@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
 set -x
 
 UPSTREAM_REPO=$1
@@ -37,7 +36,7 @@ git checkout master
 
 MERGE_RESULT=$(git merge upstream/master)
 if [[ $MERGE_RESULT != *"Already up to date."* ]]; then
-  git commit -m "Merged upstream" . 
+  git commit -m "Merged upstream"  
   git push origin master
 fi
 
