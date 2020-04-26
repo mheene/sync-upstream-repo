@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: GitHub Sync to Upstream Repository
-      uses: mheene/sync-upstream-repo@v0.1.1
+      uses: mheene/sync-upstream-repo@v0.1.2
       with:
       # GitHub public upstream repo
         upstream_repo: https://github.com/holger24/AFD.git
